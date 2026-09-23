@@ -1,0 +1,191 @@
+{
+  "repository": "https://github.com/theosw/theosrenderpipeline",
+  "commit": "89ddf3807dbb03757c49e9a87e5b6fd5e837938f",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sourcePath": "LICENSE",
+      "sha256": "463e5dbcd3dc57f493e6ebcd13bb55ceaf7308d21cdd39b445bf76968a1c08ad"
+    },
+    {
+      "path": "extern/MFGAmpere/LICENSE",
+      "sourcePath": "extern/MFGAmpere/LICENSE",
+      "sha256": "8b77740c6c91157c6946d9ad092fc5d6ce86d09c653abf110bb6be08072002fe"
+    },
+    {
+      "path": "extern/MFGAmpere/fatbin.hpp",
+      "sourcePath": "extern/MFGAmpere/fatbin.hpp",
+      "sha256": "2acc98ae34c70b866285c722619cbd02189d189975d9e00d8e88ea52aea8e4fe"
+    },
+    {
+      "path": "extern/MFGAmpere/module_loader.hpp",
+      "sourcePath": "extern/MFGAmpere/module_loader.hpp",
+      "sha256": "4c9a5a9d966afd65ed34f0fb83b932b31917a7bb16a9c0a3b0ad327d3c53ca80"
+    },
+    {
+      "path": "extern/MFGAmpere/module_patch.hpp",
+      "sourcePath": "extern/MFGAmpere/module_patch.hpp",
+      "sha256": "4addabc6096f121081a64792645819ab741cbe1d727189ed7ebfbbde7e210b71"
+    },
+    {
+      "path": "extern/MFGAmpere/provider_retarget.hpp",
+      "sourcePath": "extern/MFGAmpere/provider_retarget.hpp",
+      "sha256": "4d12074e744e7b0427862d5cf9971466dc25a53fb221367680745b210271d72d"
+    },
+    {
+      "path": "extern/MFGAmpere/ptx_retarget.hpp",
+      "sourcePath": "extern/MFGAmpere/ptx_retarget.hpp",
+      "sha256": "12d92870e956de228e441c6ac4f7da692a8bf8e81ed5fe92a7951de3a3a97014"
+    },
+    {
+      "path": "extern/MFGAmpere/runtime.cpp",
+      "sourcePath": "extern/MFGAmpere/runtime.cpp",
+      "sha256": "2570dcc37b53f76c5ac11f8c7f10a23da952ad196702bab0c8c4a976937761e5"
+    },
+    {
+      "path": "extern/MFGAmpere/runtime.hpp",
+      "sourcePath": "extern/MFGAmpere/runtime.hpp",
+      "sha256": "43a2b1013f97ce2ad8bf96abec33c32974a97d2c8605d99f5701a468c2c43129"
+    },
+    {
+      "path": "extern/MFGAmpere/turing_network.hpp",
+      "sourcePath": "extern/MFGAmpere/turing_network.hpp",
+      "sha256": "6022fa37a6c9339b226edde8605753d30fc57fb70cb3f78a1509b500c8ef9747"
+    },
+    {
+      "path": "extern/MFGTuring/LICENSE",
+      "sourcePath": "extern/MFGTuring/LICENSE",
+      "sha256": "8b77740c6c91157c6946d9ad092fc5d6ce86d09c653abf110bb6be08072002fe"
+    },
+    {
+      "path": "extern/MFGTuring/README.md",
+      "sourcePath": "extern/MFGTuring/README.md",
+      "sha256": "33dc18e756b7f42ee25f8eb37b5169a88634f2dba4b93b171fe1fb4062e17dce"
+    },
+    {
+      "path": "extern/MFGTuring/architecture.hpp",
+      "sourcePath": "extern/MFGTuring/architecture.hpp",
+      "sha256": "d3d252c91e92593e89f209a61ae361481a69bfc37e8f16baa8f340a347bf1188"
+    },
+    {
+      "path": "extern/MFGTuring/fatbin.hpp",
+      "sourcePath": "extern/MFGTuring/fatbin.hpp",
+      "sha256": "0bd9d6aa610f2de668b55edd269416cdb4a55c96adff5020f4eb0cd607b0c09b"
+    },
+    {
+      "path": "extern/MFGTuring/ptx_compat.hpp",
+      "sourcePath": "extern/MFGTuring/ptx_compat.hpp",
+      "sha256": "ecb6446583b9e2a453a98acd923ada4a61f61d8efaf5ed25a13b981b3d138be6"
+    },
+    {
+      "path": "extern/MFGTuring/ptx_retarget.hpp",
+      "sourcePath": "extern/MFGTuring/ptx_retarget.hpp",
+      "sha256": "4db0ce0f3650546a893e4608610e49df18cd0a94a50f5a9928dc01e25ca50eee"
+    },
+    {
+      "path": "extern/RTX40MFG/LICENSE",
+      "sourcePath": "extern/RTX40MFG/LICENSE",
+      "sha256": "433da96087fd9b91afd44c6350ca92da53167c9636a0a71e428f71036d8c372f"
+    },
+    {
+      "path": "extern/RTX40MFG/README.md",
+      "sourcePath": "extern/RTX40MFG/README.md",
+      "sha256": "033b3975bb36cef7f6caebb0e2c929f7094f2a5f0c07fad224b87b04d3633706"
+    },
+    {
+      "path": "extern/RTX40MFG/dlssg_provider_policy.cpp",
+      "sourcePath": "extern/RTX40MFG/dlssg_provider_policy.cpp",
+      "sha256": "f6ff50f9da04ded053b959ef2b13955a890784d1127004b295936eb9e2223ad4"
+    },
+    {
+      "path": "extern/RTX40MFG/dlssg_provider_policy.h",
+      "sourcePath": "extern/RTX40MFG/dlssg_provider_policy.h",
+      "sha256": "002020c96b0c901e38ffcb7c1cb3cc51e78060d7cde4c6ab26625bd620d9a32c"
+    },
+    {
+      "path": "extern/RTX40MFG/midpoint_fix.cpp",
+      "sourcePath": "extern/RTX40MFG/midpoint_fix.cpp",
+      "sha256": "6a6b9471197702b06999be0ff506be8e20d0c930e7fb8a5b37b928765d8512f0"
+    },
+    {
+      "path": "extern/RTX40MFG/midpoint_fix.h",
+      "sourcePath": "extern/RTX40MFG/midpoint_fix.h",
+      "sha256": "351fa95e6334d27793144365325ff181a1775db286ba4522e8eddab4ac2d5256"
+    },
+    {
+      "path": "src/FrameGen/SourceDLSSGMFG.h",
+      "sourcePath": "src/FrameGen/SourceDLSSGMFG.h",
+      "sha256": "0e474adc7384e8cd6ec04f7553dcc84c4706b4c2d0019bc128bdf29cf15fe287"
+    },
+    {
+      "path": "src/FrameGen/SourceDLSSGMFGContract.h",
+      "sourcePath": "src/FrameGen/SourceDLSSGMFGContract.h",
+      "sha256": "ab8813966a9e212a4cc6f7397d46bddd3a4608f5f6aed6ace2ec79eb4f882754"
+    },
+    {
+      "path": "src/FrameGen/SourceDLSSGMFGPatch.h",
+      "sourcePath": "src/FrameGen/SourceDLSSGMFGPatch.h",
+      "sha256": "d837c5ad720568bff70799358b47dee32d04298007d3b07856156896b6a2d4b1"
+    },
+    {
+      "path": "src/PluginPaths.h",
+      "sourcePath": "src/PluginPaths.h",
+      "sha256": "6ce34b1163987829e09e59a4f48458f11a0e0cb9a6675b42bca70cba01c98b23"
+    },
+    {
+      "path": "tests/ampere-runtime/CMakeLists.txt",
+      "sourcePath": "tests/ampere-runtime/CMakeLists.txt",
+      "sha256": "2f9b37035f15e4b3f6110e2d57257202d8ff167a39f87f5a3a2e2edb95dd6eed"
+    },
+    {
+      "path": "tests/ampere-runtime/RuntimeBridgeTests.cpp",
+      "sourcePath": "tests/ampere-runtime/RuntimeBridgeTests.cpp",
+      "sha256": "beca901644dc2a83c4def4450b33a0f314a5c05f14a09bb4ce61546cf074f7e1"
+    },
+    {
+      "path": "tests/turing/CMakeLists.txt",
+      "sourcePath": "tests/turing/CMakeLists.txt",
+      "sha256": "c2b14d628bf5f3c1fecce9c30640b0d00397f6f2854c6dc18147000812545dc3"
+    },
+    {
+      "path": "tests/turing/CuModuleProbe.cpp",
+      "sourcePath": "tests/turing/CuModuleProbe.cpp",
+      "sha256": "1b24a84a117a917834dcef78df6821ee562bae1dc58a76002b7ec63afb7e4c75"
+    },
+    {
+      "path": "tests/turing/PlannerTests.cpp",
+      "sourcePath": "tests/turing/PlannerTests.cpp",
+      "sha256": "fb30ab79a91944c8ab7ab43e35435afd25cd3219f5d9778cd1d3e06433b55898"
+    },
+    {
+      "path": "tests/turing/ProviderAudit.cpp",
+      "sourcePath": "tests/turing/ProviderAudit.cpp",
+      "sha256": "3e6c4254743aec104b26bae4b1af8f1fb754b2c040436827dd203e7adba050f6"
+    },
+    {
+      "path": "tests/turing/ProviderGuardProbe.cpp",
+      "sourcePath": "tests/turing/ProviderGuardProbe.cpp",
+      "sha256": "a9677ea855604186b7adaeda1eb428665b3f0c84ca3469ed5dcce888c3e3e507"
+    },
+    {
+      "path": "tests/turing/README.md",
+      "sourcePath": "tests/turing/README.md",
+      "sha256": "73725e02c455510252f96d12f329487d02a0905565fb4d78dfcd74b34a68c5bf"
+    },
+    {
+      "path": "tests/turing/network_selection.py",
+      "sourcePath": "tests/turing/network_selection.py",
+      "sha256": "de5bc237b96ea3f6631ad6921d8f837c7a2b85a66d6a624fdfe162b6ede571c2"
+    },
+    {
+      "path": "docs/RTX20_COMPATIBILITY.md",
+      "sourcePath": "docs/RTX20_COMPATIBILITY.md",
+      "sha256": "fbbb617edf02cf975638f24b59e1cb959e4b32fca513ba2d9304654d70cde7f2"
+    },
+    {
+      "path": "TRP-THIRD-PARTY.md",
+      "sourcePath": "THIRD-PARTY.md",
+      "sha256": "620b34fd03a7926303d96c242fd1246def9487140b2b869a072ada99f1385400"
+    }
+  ]
+}
