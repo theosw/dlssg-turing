@@ -79,6 +79,9 @@ to another host still needs its own lifetime, hook-order and rendering tests.
 
 ## Evidence and maintenance
 
+The [extraction validation record](docs/VALIDATION.md) covers the standalone
+build, 40 CTests, source identity and CPU-only real-provider checks.
+
 See [RTX 2060 evidence and limits](docs/RTX20_COMPATIBILITY.md): about 25 minutes,
 ENB/ReShade, DLSS Quality at 1080p output, x2/x3/x4/x6 and one loading recovery.
 Temporary VRAM/presentation warnings and weapon jitter remain unresolved.
