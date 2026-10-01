@@ -1,15 +1,24 @@
 # DLSS-G Turing compatibility
 
-Experimental Windows/C++ compatibility component for RTX 20 DLSS-G and
-multi-frame generation, extracted from Theo's Render Pipeline (TRP).
-The TRP candidate has an RTX 2060 volunteer run with runtime-reported x2/x3/x4/x6
-output and loading recovery. This extraction has not been integrated into other
-games. It is a developer component, not a standalone injector or end-user mod.
+Windows/C++ compatibility component that runs NVIDIA DLSS-G frame generation and
+multi-frame generation on RTX 20 (Turing) GPUs, alongside the RTX 30 (Ampere) and
+RTX 40 (Ada) unlock paths. It has shipped in the Universal edition of
+[Theo's Render Pipeline](https://github.com/theosw/theosrenderpipeline) (TRP) for
+Skyrim since 0.3.0, where RTX 20 users report working frame generation. It is a
+developer component, not a standalone injector or end-user mod, and has not been
+integrated into other games.
 
 The instruction converter comes from **MFGAmpereUnlock-RenoDx** by ImDreamt,
 mavismmg and nefh. Temporal/provider helpers derive from **RTX40MFG-Unlock** by
-Michael Robles. TRP contributes the host integration, guarded PTX network
+Michael Robles. This project contributes the host runtime, guarded PTX network
 selection, failure diagnosis and tests. See [credits](THIRD-PARTY.md).
+
+## Layout
+
+- `src/`: the compatibility runtime, including provider preparation, Turing
+  network selection, module loading and patch transactions.
+- `extern/`: adapted upstream code, each directory with its MIT notice.
+- `tests/`: CPU-only regression tests and manual provider/GPU probes.
 
 ## Scope
 
@@ -35,8 +44,7 @@ renderer, swapchain presenter, menu or frame-pacing replacement.
 
 Requires Windows x64, Visual Studio 2022 with C++/Windows SDK, CMake 3.21+, and
 a locally supplied NVIDIA NGX SDK containing `include/nvsdk_ngx.h`.
-Use the matching SDK headers from the TRP dependency setup; vendor files are
-not downloaded by this build.
+Vendor files are not downloaded by this build.
 
 ```powershell
 cmake -S . -B out/build -G "Visual Studio 17 2022" -A x64 -DTRP_NGX_SDK_DIR="C:/path/to/ngx-sdk"
@@ -48,13 +56,15 @@ The normal CTests use synthetic programs/vendor doubles and no GPU dispatch.
 `TRPTuringProviderAudit` and the Python network-selection check are explicit
 manual tools. GPU probes are built but are **not** registered as CTests; invoke
 them only deliberately. See [test instructions](tests/turing/README.md).
-Tests and internal namespaces retain their TRP names to preserve source identity.
+When this directory is added to another project, tests build only with
+`-DDLSSG_TURING_BUILD_TESTS=ON`. Internal namespaces (`trp::ampere`,
+`TheosRenderPipeline::SourceDLSSG`) and test names keep their TRP origins.
 
 ## Host integration
 
 Add this directory with CMake `add_subdirectory`, then link
 `dlssg_turing::compat`. The public entry points are in
-[`extern/MFGAmpere/runtime.hpp`](extern/MFGAmpere/runtime.hpp).
+[`src/runtime.hpp`](src/runtime.hpp).
 
 The host must provide the actual rendering D3D12 device, an absolute runtime
 directory, a log callback and a fatal callback that terminates on unrecoverable
@@ -68,18 +78,16 @@ There is one owner/adapter/provider per process. Retain modules and published
 allocations until process exit. There is no supported detach, hot reload or
 recovery after a partial runtime failure. Keep `allowSeparateModules=false`
 unless the host implements the coordinated separate-runtime ownership protocol;
-it is not a generic conflict bypass. Existing `PluginPaths` module-normalization
-helpers are retained; its Skyrim-specific `Directory()` helper is unused here.
-`SourceDLSSGMFG.h` is retained for route-policy fixture coverage; the Skyrim
-host implementation is not linked into this library.
+it is not a generic conflict bypass.
 
-The reference integration is [TRP](https://github.com/theosw/theosrenderpipeline),
-at the commit recorded in [SOURCE-MANIFEST.json](SOURCE-MANIFEST.json). Adaptation
-to another host still needs its own lifetime, hook-order and rendering tests.
+[TRP](https://github.com/theosw/theosrenderpipeline) is the reference
+integration; its `src/FrameGen/SourceDLSSGMFG.cpp` owns route selection and
+startup sequencing. Adaptation to another host still needs its own lifetime,
+hook-order and rendering tests.
 
-## Evidence and maintenance
+## Evidence
 
-The [extraction validation record](docs/VALIDATION.md) covers the standalone
+The [original extraction validation](docs/VALIDATION.md) covers the standalone
 build, 40 CTests, source identity and CPU-only real-provider checks.
 
 See [RTX 2060 evidence and limits](docs/RTX20_COMPATIBILITY.md): about 25 minutes,
@@ -89,15 +97,11 @@ Other cards/games, image equivalence and measured display cadence are unverified
 The FP16 lowering changes accumulation order. No general quality or performance
 improvement is claimed.
 
-TRP remains the canonical source during this extraction stage. The manifest pins
-every imported source/test/license file. Check the extraction with:
+## Contributing and maintenance
 
-```powershell
-python tools/check_source.py
-python tools/check_source.py --trp C:/path/to/theosrenderpipeline
-```
+This repository is the canonical source. TRP vendors it under
+`extern/dlssg-turing` with `git subtree --squash` and updates only from commits
+published here, so make compatibility changes and fixes here first.
 
-Make compatibility changes in TRP first, validate them there, then refresh this
-snapshot and manifest from the reviewed commit. Do not maintain independent
-fixes in both copies. The GPL licence and exceptions from TRP are retained for
-this extraction; bundled third-party files retain their own notices and terms.
+The GPL licence and exceptions from TRP apply to this repository; bundled
+third-party files retain their own notices and terms.
