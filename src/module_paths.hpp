@@ -5,7 +5,9 @@
 #include <string>
 #include <vector>
 
-namespace TheosRenderPipeline::PluginPaths
+// Module identity helpers for runtime loading. Keep them in this library's own
+// namespace; a host such as TRP has its own path utilities in the same binary.
+namespace trp::ampere::paths
 {
 	inline std::filesystem::path Normalize(const std::filesystem::path& a_path)
 	{
@@ -80,16 +82,5 @@ namespace TheosRenderPipeline::PluginPaths
             return true;
         }
         return !allowSeparateModules && ::GetModuleHandleW(path.filename().c_str()) != nullptr;
-    }
-
-    inline std::filesystem::path Directory()
-    {
-        // Use the game's virtual Data tree. MO2 may load our replacement DLL
-        // from a different physical mod than the settings, shaders and runtimes.
-        std::wstring executable(32768, L'\0');
-        const auto size = ::GetModuleFileNameW(nullptr, executable.data(), static_cast<DWORD>(executable.size()));
-        if (size == 0 || size >= executable.size()) { return {}; }
-        executable.resize(size);
-        return std::filesystem::path(executable).parent_path() / L"Data" / L"SKSE" / L"Plugins";
     }
 }

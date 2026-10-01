@@ -1,9 +1,9 @@
 # Attribution and source provenance
 
-This component is extracted from Theo's Render Pipeline. Its existing
-[GPL v3 licence and modding/linking exceptions](LICENSE) are retained; extracting
-the code does not relicense it as MIT. The pinned source and SHA-256 values are
-recorded in [SOURCE-MANIFEST.json](SOURCE-MANIFEST.json).
+This component began in Theo's Render Pipeline (TRP), which now vendors it from
+this repository. TRP's [GPL v3 licence and modding/linking exceptions](LICENSE)
+apply; separating the code does not relicense it as MIT. Adapted upstream code
+is under `extern/`, and `src/` notes where the runtime follows upstream policy.
 
 - **MFGAmpereUnlock-RenoDx**, ImDreamt, mavismmg and nefh: MIT PTX/container and
   architecture work. The SM86 adaptation is based on
@@ -19,13 +19,13 @@ recorded in [SOURCE-MANIFEST.json](SOURCE-MANIFEST.json).
 - **NVIDIA NVAPI**: public architecture-query ABI declarations, MIT, revision
   `87dca625e83fd89a983e19b904e5f3a580da90d2`.
   The original notice is retained in [TRP's full notices](TRP-THIRD-PARTY.md#nvapi-public-architecture-query-abi).
-- **Theo's Render Pipeline**: integration, guarded provider publication,
-  module-path handling, PTX network selection and diagnostic/regression work.
+- **This project (Theo)**: the host runtime in `src/`, including guarded
+  provider publication, module-path handling, PTX network selection and
+  diagnostic/regression work, first developed in Theo's Render Pipeline.
   This is an adaptation built on the projects above, not an independently
   invented instruction converter or a replacement NVIDIA neural network.
 
 The unmodified [TRP notices](TRP-THIRD-PARTY.md) preserve the original licensing
 record, including components of the larger renderer that are not in this subset.
-The manifest enumerates what is actually imported. NVIDIA SDK headers must be
-supplied locally under their existing terms; NVIDIA runtime/model/kernel files
-are not redistributed by this repository.
+NVIDIA SDK headers must be supplied locally under their existing terms;
+NVIDIA runtime/model/kernel files are not redistributed by this repository.
